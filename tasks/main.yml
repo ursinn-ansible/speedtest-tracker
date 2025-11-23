@@ -46,7 +46,6 @@
     image: '{{ docker_image }}'
     volumes:
      - '{{ docker_dir_config }}:/config:Z'
-     - '{{ docker_dir_data }}:/data:Z'
     env:
       PUID: '{{ docker_puid }}'
       PGID: '{{ docker_pgid }}'
