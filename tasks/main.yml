@@ -41,7 +41,7 @@
     driver_options:
       com.docker.network.bridge.name: 'br-{{ docker_network }}'
 
-- name: Create smokeping container
+- name: Create speedtest-tracker container
   community.docker.docker_container:
     image: '{{ docker_image }}'
     volumes:
