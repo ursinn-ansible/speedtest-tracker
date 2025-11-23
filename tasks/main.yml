@@ -1,13 +1,13 @@
 ---
 - name: set vars
   set_fact:
-    docker_image: '{{ role_speedtest-tracker_image }}'
-    docker_container: '{{ role_speedtest-tracker_container }}'
-    docker_puid: '{{ role_speedtest-tracker_puid }}'
-    docker_pgid: '{{ role_speedtest-tracker_pgid }}'
-    docker_tz: '{{ role_speedtest-tracker_tz }}'
-    docker_dir_config: '{{ role_speedtest-tracker_dir }}/config'
-    docker_network: '{{ role_speedtest-tracker_network }}'
+    docker_image: '{{ role_speedtest_tracker_image }}'
+    docker_container: '{{ role_speedtest_tracker_container }}'
+    docker_puid: '{{ role_speedtest_tracker_puid }}'
+    docker_pgid: '{{ role_speedtest_tracker_pgid }}'
+    docker_tz: '{{ role_speedtest_tracker_tz }}'
+    docker_dir_config: '{{ role_speedtest_tracker_dir }}/config'
+    docker_network: '{{ role_speedtest_tracker_network }}'
 
 - name: Create config directory
   ansible.builtin.file:
@@ -51,11 +51,11 @@
       PUID: '{{ docker_puid }}'
       PGID: '{{ docker_pgid }}'
       TZ: '{{ docker_tz }}'
-      APP_KEY: '{{ role_speedtest-tracker_app_key }}'
-      APP_URL: '{{ role_speedtest-tracker_app_url }}'
+      APP_KEY: '{{ role_speedtest_tracker_app_key }}'
+      APP_URL: '{{ role_speedtest_tracker_app_url }}'
       DB_CONNECTION: 'sqlite'
-      SPEEDTEST_SCHEDULE: '{{ role_speedtest-tracker_speedtest_schedule }}'
-      SPEEDTEST_SERVERS: '{{ role_speedtest-tracker_speedtest_servers }}'
+      SPEEDTEST_SCHEDULE: '{{ role_speedtest_tracker_speedtest_schedule }}'
+      SPEEDTEST_SERVERS: '{{ role_speedtest_tracker_speedtest_servers }}'
     name: '{{ docker_container }}'
     networks:
      - name: '{{ docker_network }}'
